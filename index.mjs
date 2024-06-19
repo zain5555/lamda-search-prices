@@ -21,7 +21,7 @@ export async function handler(event) {
       const params = {
       TableName : 'history',
       Item: {
-             "blog_id":11,
+             "history":11,
              "blog_author":"Neil harrison",
              "blog_title":"Microservice"
         }
