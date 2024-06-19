@@ -26,7 +26,7 @@ export async function handler(event) {
              "blog_title":"Microservice"
         }
       }
-    await dynamo.put(params).promise();
+    await dynamo.put(params)
     return { body: 'Successfully created item!' }
   } catch (err) {
     
