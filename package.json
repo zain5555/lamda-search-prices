@@ -1,0 +1,24 @@
+{
+  "name": "lamda-search-prices",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zain5555/lamda-search-prices.git"
+  },
+  "author": "Zain ul Abideen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zain5555/lamda-search-prices/issues"
+  },
+  "homepage": "https://github.com/zain5555/lamda-search-prices#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "serverless-http": "^3.2.0"
+  }
+}
