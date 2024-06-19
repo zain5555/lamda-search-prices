@@ -8,8 +8,10 @@
 //   };
   
 
-  import * as AWS from 'aws-sdk';
-const docClient = new AWS.DynamoDB.DocumentClient();
+import { DynamoDB } from '@aws-sdk/client-dynamodb';
+import { DynamoDBDocument } from '@aws-sdk/lib-dynamodb';
+
+const dynamo = DynamoDBDocument.from(new DynamoDB());
 
 
 
@@ -24,7 +26,7 @@ export async function handler(event) {
              "blog_title":"Microservice"
         }
       }
-    await docClient.put(params).promise();
+    await dynamo.put(params).promise();
     return { body: 'Successfully created item!' }
   } catch (err) {
     
