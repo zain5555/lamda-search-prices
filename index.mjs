@@ -8,12 +8,12 @@
 //   };
   
 
-  const AWS = require('aws-sdk');
-const docClient = new AWS.DynamoDB.DocumentClient();
+  import { DynamoDB } from 'aws-sdk';
+const docClient = new DynamoDB.DocumentClient();
 
 
 
-exports.handler = async (event) => {
+export async function handler(event) {
     console.log(event);
     try {
       const params = {
@@ -30,4 +30,4 @@ exports.handler = async (event) => {
     
     return { error: err }
   }
-};
+}
