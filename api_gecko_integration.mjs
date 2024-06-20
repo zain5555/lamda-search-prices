@@ -12,7 +12,7 @@ export async function getCoinPrice(cryptoCoin) {
         let responseAx = await axios(url, options);
         return responseAx.data;
       } catch (error) {
-        console.log(error)
+        console.warn(error);
         throw error;
       }
 

@@ -29,24 +29,24 @@ export async function handler(event) {
 
     const recordForCreation =  {
         "searchHistoryId": uuidv4(),
-        "timeStamp": date.toISOString(),
+        "timeCreated": date.toISOString(),
         "email": email,
         "cryptoCoin": cryptoCoin
-   }
+   };
 
     try {
 
-    await createRecord(tableName, recordForCreation)
+    await createRecord(tableName, recordForCreation);
 
-    let responseAx = await getCoinPrice(cryptoCoin)
+    let responseAx = await getCoinPrice(cryptoCoin);
 
     if(responseAx[cryptoCoin]["usd"]){
         await sendMail("Crypto Prices", email, cryptoCoin + " is " + responseAx[cryptoCoin]["usd"] );
     }
 
-    return { body: { message : responseSuccessMessage, data : responseAx ? responseAx : {}} }
+    return { body: { message : responseSuccessMessage, data : responseAx ? responseAx : {}} };
   } catch (err) {
     
-    return { error: err }
+    return { error: err };
   }
 }

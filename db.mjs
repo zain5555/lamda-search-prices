@@ -8,12 +8,12 @@ export async function createRecord(tableName, payload) {
     const params = {
       TableName : tableName,
       Item: payload
-      }
+      };
 
       try {
-        await dynamo.put(params)
+        await dynamo.put(params);
       } catch (error) {
-        console.log(error)
+        console.warn(error);
       }
 
 }
