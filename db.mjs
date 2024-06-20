@@ -16,5 +16,4 @@ export async function createRecord(tableName, payload) {
         console.log(error)
       }
 
-
 }
