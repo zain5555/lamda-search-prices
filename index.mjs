@@ -8,12 +8,10 @@
 //   };
   
 
-import { DynamoDB } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocument } from '@aws-sdk/lib-dynamodb';
-
-const dynamo = DynamoDBDocument.from(new DynamoDB());
-
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
+
+import { createRecord } from "./db.mjs";
+
 const ses = new SESClient({ region: "ap-southeast-2" });
 
 
@@ -63,10 +61,19 @@ export async function handler(event) {
     //     }
     //   }
     // await dynamo.put(params)
+
+    const recordForCreation =  {
+
+                 "history":"11",
+                 "blog_author":"Neil harrison",
+                 "blog_title":"Microservice"
+            }
+
+    await createRecord('history', recordForCreation)
     // let response = await ses.send(command);
 
-    let responseAx = await axios(url, options);
-    console.log(responseAx.json())
+    // let responseAx = await axios(url, options);
+    // console.log(responseAx.json())
 
     return { body: 'Successfully created item!' }
   } catch (err) {
