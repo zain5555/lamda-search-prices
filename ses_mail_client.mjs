@@ -1,5 +1,5 @@
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
-const ses = new SESClient({ region: "ap-southeast-2" });
+const ses = new SESClient({ region: process.env.amazonRegion });
 
 export async function sendMail(subject, recipient, body) {
 
@@ -14,7 +14,7 @@ export async function sendMail(subject, recipient, body) {
     
           Subject: { Data: subject},
         },
-        Source: "zainabedeen.sohail@gmail.com",
+        Source: process.env.emailSender,
       });
 
       try {
