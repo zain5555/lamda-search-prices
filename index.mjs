@@ -23,9 +23,11 @@ export async function handler(event) {
 
     }
 
+    const date = new Date();
+
     const recordForCreation =  {
         "searchHistory": uuidv4(),
-        "timeStamp": new Date(),
+        "timeStamp": date.toISOString(),
         "email": email,
         "cryptoCoin": cryptoCoin
    }
