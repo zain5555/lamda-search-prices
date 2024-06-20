@@ -8,7 +8,7 @@ import * as EmailValidator from 'email-validator';
 export async function handler(event) {
     console.log(event);
 
-    let { email, cryptoCoin } = event[data];
+    let { email, cryptoCoin } = event["data"];
 
     if(email){
         if(!EmailValidator.validate(email)) 
@@ -26,7 +26,7 @@ export async function handler(event) {
     const date = new Date();
 
     const recordForCreation =  {
-        "searchHistory": uuidv4(),
+        "searchHistoryId": uuidv4(),
         "timeStamp": date.toISOString(),
         "email": email,
         "cryptoCoin": cryptoCoin
@@ -39,7 +39,7 @@ export async function handler(event) {
     let responseAx = await getCoinPrice(cryptoCoin)
 
     if(responseAx[cryptoCoin]["usd"]){
-        await sendMail("Crypto Prices", email, responseAx[cryptoCoin]["usd"] );
+        await sendMail("Crypto Prices", email, cryptoCoin + " is " + responseAx[cryptoCoin]["usd"] );
     }
 
     return { body: { message : 'Successfully generated Request!', data : responseAx ? responseAx : {}} }
