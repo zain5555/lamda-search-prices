@@ -9,7 +9,7 @@ export async function sendMail(subject, recipient, body) {
         },
         Message: {
           Body: {
-            Text: { Data: "This email is to notify you the price of " + body + "." },
+            Text: { Data: "This email is to notify you the price of " + body + " USD." },
           },
     
           Subject: { Data: subject},
